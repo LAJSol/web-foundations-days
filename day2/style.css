@@ -4,62 +4,54 @@
 *::after {
   box-sizing: border-box;
 }
-
+ 
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background-color: #f4f6f8;
   color: #222;
-  line-height: 1.5;
+  line-height: 1.6;
 }
-
+ 
 /* 2. Header */
 header {
   background-color: #8e0000;
   color: white;
   text-align: center;
-  padding: 24px 16px;
+  padding: 24px 16px 16px;
 }
-
+ 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
 }
-
-header p {
-  margin: 8px 0 16px;
-}
-
-/* 3. Navigation: centred row with Flexbox */
+ 
+/* 3. Navigation with Flexbox */
 nav {
   display: flex;
   justify-content: center;
   gap: 16px;
+  margin-top: 12px;
 }
-
+ 
 nav a {
   color: white;
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 6px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  transition: background-color 0.2s ease;
 }
-
+ 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  text-decoration: underline;
-  transform: translateY(-2px);
+  background-color: rgb(241, 84, 84);
 }
-
-/* 4. Centred main content with a maximum width, sections as white cards */
+ 
+/* 4. Main content and section cards */
 main {
-  max-width: 800px;
+  max-width: 760px;
   margin: 24px auto;
   padding: 0 16px;
 }
-
+ 
 section {
   background: white;
   padding: 20px;
@@ -67,97 +59,70 @@ section {
   margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
-
-/* 5. Home page: note form and notes list */
-#note-form {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+ 
+h2,
+h3 {
+  color: #8e0000;
+  margin-top: 0;
 }
-
-#note-form label {
-  width: 100%;
-  font-weight: bold;
-}
-
-#note-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-#notes-list {
-  list-style: none;
-  padding: 0;
-}
-
-.note {
-  background-color: #fffbe6;
-  border-left: 4px solid #0ba184;
-  padding: 12px 16px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-}
-
-/* 6. Features list: responsive card grid with CSS Grid */
+ 
+/* 5. Features as a responsive grid of cards */
 .features {
   list-style: none;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
+  gap: 12px;
 }
-
+ 
 .features li {
-  background-color: #fffbe6;
+  background-color: #e6f6f1;
   border-left: 4px solid #0ba184;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  border-radius: 6px;
 }
-
-/* 7. Shortcuts table */
+ 
+/* 6. Shortcuts table */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* merge double borders into one */
 }
-
+ 
 th,
 td {
-  border: 1px solid #ccc;
-  padding: 10px 14px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
   text-align: left;
 }
-
+ 
 th {
   background-color: #f0f0f0;
 }
-
-/* 8. Feedback form: fields stacked vertically at full width */
-#feedback-form {
+ 
+/* 7. Forms */
+form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
-
-#feedback-form label {
-  font-weight: bold;
-}
-
-#feedback-form input,
-#feedback-form textarea {
+ 
+input,
+textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
-  font-family: inherit;
+  font: inherit; /* use the page font instead of the browser default */
 }
-
-/* 9. Buttons with a smooth hover transition */
+ 
+input:focus,
+textarea:focus {
+  outline: 2px solid #0ba184;
+  border-color: #0ba184;
+}
+ 
 button {
+  align-self: flex-start;
   background-color: #0ba184;
   color: white;
   border: none;
@@ -165,34 +130,32 @@ button {
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
+ 
 button:hover {
   background-color: #088a70;
   transform: translateY(-2px);
 }
-
-/* 10. Footer */
+ 
+/* 8. Footer */
 footer {
   text-align: center;
   color: #777;
   padding: 16px;
 }
-
-/* 11. Phones: smaller header, stacked note form */
+ 
+/* 9. Small screens */
 @media (max-width: 600px) {
   header {
-    padding: 16px 12px;
+    padding: 16px 12px 12px;
   }
-
+ 
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
-
-  #note-form {
-    flex-direction: column;
+ 
+  section {
+    padding: 16px;
   }
 }

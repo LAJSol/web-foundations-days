@@ -18,19 +18,14 @@ header {
   background-color: #8e0000;
   color: white;
   text-align: center;
-  padding: 24px 16px;
+  padding: 24px 16px 16px;
 }
  
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
 }
- header p {
-  margin: 8px 0 16px;
-  font-size: 1.1rem;
-}
-
-/* 3. Navigation*/
+ 
+/* 3. Navigation with Flexbox */
 nav {
   display: flex;
   justify-content: center;
@@ -48,7 +43,6 @@ nav a {
  
 nav a:hover {
   background-color: rgb(241, 84, 84);
-
 }
  
 /* 4. Main content and section cards */
@@ -91,7 +85,7 @@ h3 {
 /* 6. Shortcuts table */
 table {
   width: 100%;
-  border-collapse: collapse; 
+  border-collapse: collapse; /* merge double borders into one */
 }
  
 th,
@@ -118,7 +112,7 @@ textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font: inherit;
+  font: inherit; /* use the page font instead of the browser default */
 }
  
 input:focus,
@@ -127,25 +121,6 @@ textarea:focus {
   border-color: #0ba184;
 }
  
-#note-form {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-#note-form label {
-  width: 100%; /* label on its own line */
-  font-weight: bold;
-}
-
-#note-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
 button {
   align-self: flex-start;
   background-color: #0ba184;
@@ -170,7 +145,7 @@ footer {
   padding: 16px;
 }
  
-/* 9. Phones */
+/* 9. Small screens */
 @media (max-width: 600px) {
   header {
     padding: 16px 12px 12px;

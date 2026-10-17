@@ -1,0 +1,136 @@
+/* 1. Dark mode variables */
+:root {
+  --bg: #f4f6f8;
+  --card-bg: #ffffff;
+  --text: #222222;
+  --muted: #555555;
+  --border: #cccccc;
+  --accent: #0ba184;
+  --accent-hover: #088a70;
+}
+
+body.dark {
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --text: #f1f1f1;
+  --muted: #b5b5b5;
+  --border: #444444;
+  --accent: #14b89a;
+  --accent-hover: #0ba184;
+}
+
+/* 2. Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 3. The card */
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+}
+
+/* 4. Counters */
+/* Default text colour uses the element selector p, which is weaker than a class,
+   so .warning and .over below can override it. (An id selector like #char-count
+   would be stronger than a class and would block them.) */
+p {
+  color: var(--muted);
+}
+
+#char-count,
+#word-count {
+  margin: 8px 0 0;
+}
+
+/* warning comes first so over wins when both classes are present */
+.warning {
+  color: orange;
+}
+
+.over {
+  color: red;
+  font-weight: bold;
+}
+
+/* 5. Buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 10px 18px;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* 8. Footer */
+footer {
+  text-align: center;
+  color: #777;
+  padding: 16px;
+}
+ 
+/* 9. Phones */
+@media (max-width: 600px) {
+  header {
+    padding: 16px 12px 12px;
+  }
+ 
+  header h1 {
+    font-size: 1.6rem;
+  }
+ 
+  section {
+    padding: 16px;
+  }
+}

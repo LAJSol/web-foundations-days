@@ -1,0 +1,229 @@
+/* ===== 1. Variables & reset ===== */
+:root {
+  --red: #8e0000;
+  --teal: #0ba184;
+  --blue: #2563eb;
+  --bg: #f4f6f8;
+  --text: #222;
+  --muted: #6b7280;
+}
+ 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+ 
+/* Hidden visually but still read by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+ 
+/* ===== 2. Header & footer ===== */
+header {
+  background: var(--red);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+}
+ 
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+ 
+.tagline {
+  margin: 4px 0 0;
+  opacity: 0.9;
+}
+ 
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px;
+  font-size: 0.9rem;
+}
+ 
+/* ===== 3. Layout ===== */
+main {
+  max-width: 700px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+ 
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+ 
+.card h2 {
+  margin-top: 0;
+  color: var(--red);
+}
+ 
+/* ===== 4. Form ===== */
+#note-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+ 
+#note-form > label[for="note-input"] {
+  width: 100%;
+  font-weight: bold;
+}
+ 
+#note-input,
+#note-category,
+#search-input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+ 
+#note-input {
+  flex: 1;
+  min-width: 0; /* lets the input shrink inside flexbox */
+}
+ 
+#search-input {
+  width: 100%;
+  margin-bottom: 8px;
+}
+ 
+#error-message {
+  color: var(--red);
+  font-weight: bold;
+  min-height: 1.5em; /* reserve space so the layout does not jump */
+  margin: 8px 0 0;
+}
+ 
+/* ===== 5. Buttons ===== */
+button {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+ 
+button:hover {
+  background: #088a70;
+}
+ 
+.delete-btn {
+  background: var(--red);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+ 
+.delete-btn:hover {
+  background: #6b0000;
+}
+ 
+.secondary-btn {
+  background: #e5e7eb;
+  color: var(--text);
+}
+ 
+.secondary-btn:hover {
+  background: #d1d5db;
+}
+ 
+/* ===== 6. Notes ===== */
+#note-count {
+  color: var(--muted);
+}
+ 
+#notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+ 
+.note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #fffdf5;
+  border: 1px solid #eee;
+  border-left: 5px solid var(--teal);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+ 
+.note-body {
+  flex: 1;
+  overflow-wrap: anywhere; /* long words wrap instead of overflowing */
+}
+ 
+.note-text {
+  margin: 0 0 4px;
+}
+ 
+.note-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+ 
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.75rem;
+  margin-right: 6px;
+}
+ 
+/* One colour per category */
+.category-personal { border-left-color: var(--teal); }
+.category-work     { border-left-color: var(--red); }
+.category-study    { border-left-color: var(--blue); }
+ 
+.category-personal .badge { background: var(--teal); }
+.category-work .badge     { background: var(--red); }
+.category-study .badge    { background: var(--blue); }
+ 
+.empty-message {
+  color: var(--muted);
+  font-style: italic;
+  padding: 8px 0;
+}
+ 
+/* ===== 7. Small screens ===== */
+@media (max-width: 600px) {
+  #note-form {
+    flex-direction: column;
+  }
+ 
+  .note {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+ 
+  header h1 {
+    font-size: 1.8rem;
+  }
+}
